@@ -10,6 +10,7 @@ namespace CMS.Data.Core
         public string Title { get; set; }
         public int Credits { get; set; }
 
+
         public virtual ICollection<Teacher> CourseTeacher { get; set; }
         public virtual ICollection<Student> CourseStudent { get; set; }
     }
