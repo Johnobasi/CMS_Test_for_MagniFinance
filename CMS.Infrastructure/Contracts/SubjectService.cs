@@ -7,22 +7,23 @@ using System.Linq;
 
 namespace CMS.Infrastructure.Contracts
 {
-    public class StudentServices : IStudentRepository
+    public class SubjectService : ISubjectRepository
     {
         private readonly ApplicationDbContext _context;
-        public StudentServices(ApplicationDbContext context)
+        public SubjectService(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IEnumerable<Student> GetAll()
+        public IEnumerable<Subject> GetAll()
         {
-            return _context.Students
+            return _context.Subjects
                 .Include(s => s.CMDData);
         }
 
-        public Student GetStudentById(int Id)
+        public Subject GetSubjectById(int id)
         {
-            return _context.Students.FirstOrDefault(s => s.ID == Id);
+            return _context.Subjects
+                .FirstOrDefault(s => s.Id == id);
         }
     }
 }

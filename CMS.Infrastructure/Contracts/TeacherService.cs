@@ -7,22 +7,22 @@ using System.Linq;
 
 namespace CMS.Infrastructure.Contracts
 {
-    public class StudentServices : IStudentRepository
+    public class TeacherService : ITeacherRepository
     {
         private readonly ApplicationDbContext _context;
-        public StudentServices(ApplicationDbContext context)
+        public TeacherService(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IEnumerable<Student> GetAll()
+        public IEnumerable<Teacher> GetAll()
         {
-            return _context.Students
-                .Include(s => s.CMDData);
+            return _context.Teachers
+                .Include(t => t.CMDData);
         }
 
-        public Student GetStudentById(int Id)
+        public Teacher GetTeacherById(int id)
         {
-            return _context.Students.FirstOrDefault(s => s.ID == Id);
+            return _context.Teachers.FirstOrDefault(t => t.ID == id);
         }
     }
 }

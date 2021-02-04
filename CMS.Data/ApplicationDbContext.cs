@@ -9,7 +9,7 @@ namespace CMS.Data
 
 
         public DbSet<Student> Students{ get; set; }
-        //blic DbSet<Grade> Grades { get; set; }
+        public DbSet<CMSSummary> CMSSummaries { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
