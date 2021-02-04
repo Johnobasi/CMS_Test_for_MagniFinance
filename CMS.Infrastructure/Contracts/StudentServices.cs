@@ -8,6 +8,14 @@ namespace CMS.Infrastructure.Contracts
 {
     public class StudentServices : IStudentRepository
     {
-       
+        public IEnumerable<Student> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Student GetStudentById(int Id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,8 +7,6 @@ namespace CMS.Data.Core
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Student> SubjectStudent { get; set; }
-        public virtual ICollection<Teacher> SubjectTeacher { get; set; }
-        
+        public virtual ICollection<CMSSummary> CMDData { get; set; }
     }
 }
