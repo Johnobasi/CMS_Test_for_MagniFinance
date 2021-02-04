@@ -1,6 +1,6 @@
 ﻿namespace CMS.Data.Repositories
 {
-    public interface GradesRepository
+    public interface ICoursesRepository
     {
     }
 }

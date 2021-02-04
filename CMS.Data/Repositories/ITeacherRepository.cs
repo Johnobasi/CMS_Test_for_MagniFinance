@@ -1,6 +1,7 @@
 ﻿namespace CMS.Data.Repositories
 {
-    public class StudentRepository
+    public interface ITeacherRepository
     {
+
     }
 }
