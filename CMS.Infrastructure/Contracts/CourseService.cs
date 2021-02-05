@@ -14,6 +14,17 @@ namespace CMS.Infrastructure.Contracts
         {
             _context = context;
         }
+
+        public Course Add(Course newCourse)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Course Delete(Course deletedCourse)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Course> GetAll()
         {
             return _context.Courses
@@ -23,6 +34,11 @@ namespace CMS.Infrastructure.Contracts
         public Course GetCourseById(int id)
         {
             return _context.Courses.FirstOrDefault(c => c.ID == id);
+        }
+
+        public Course Update(Course updatedCourse)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

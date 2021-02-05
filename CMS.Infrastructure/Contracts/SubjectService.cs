@@ -14,6 +14,17 @@ namespace CMS.Infrastructure.Contracts
         {
             _context = context;
         }
+
+        public Subject Add(Student newSubject)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Subject Delete(Student deletedSubject)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Subject> GetAll()
         {
             return _context.Subjects
@@ -24,6 +35,11 @@ namespace CMS.Infrastructure.Contracts
         {
             return _context.Subjects
                 .FirstOrDefault(s => s.Id == id);
+        }
+
+        public Subject Update(Student updatedSubject)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

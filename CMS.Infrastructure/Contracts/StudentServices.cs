@@ -14,6 +14,17 @@ namespace CMS.Infrastructure.Contracts
         {
             _context = context;
         }
+
+        public Student Add(Student newStudent)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Student Delete(Student deletedStudent)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Student> GetAll()
         {
             return _context.Students
@@ -23,6 +34,11 @@ namespace CMS.Infrastructure.Contracts
         public Student GetStudentById(int Id)
         {
             return _context.Students.FirstOrDefault(s => s.ID == Id);
+        }
+
+        public Student Update(Student updatedStudent)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
