@@ -15,7 +15,13 @@
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstMidName)
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
             </th>
             <th></th>
         </tr>
@@ -27,12 +33,18 @@
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstMidName)
+                @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "UpdateTeacher", new {  id=item.ID}) |
-                @Html.ActionLink("Details", "GetTreacher", new { id=item.ID}) |
-                @Html.ActionLink("Delete", "DeleteTeacher", new { id=item.ID })
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "UpdateTeacher", new { id = item.ID }) |
+                @Html.ActionLink("Details", "GetTreacher", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "DeleteTeacher", new { id = item.ID })
             </td>
         </tr>
 }

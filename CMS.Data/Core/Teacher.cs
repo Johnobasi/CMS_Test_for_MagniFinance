@@ -7,8 +7,8 @@ namespace CMS.Data.Core
     {
         public int ID { get; set; }
         public string LastName { get; set; }
-        public string FirstMidName { get; set; }
-        public DateTime BirthdayDay { get; set; }
+        public string FirstName { get; set; }
+        public DateTime Birthday { get; set; }
         public decimal Salary { get; set; }
         public virtual ICollection<Subject> Subject { get; set; }
 
