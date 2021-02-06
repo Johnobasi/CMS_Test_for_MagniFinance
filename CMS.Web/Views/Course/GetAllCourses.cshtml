@@ -6,22 +6,16 @@
 
 <h1>All Courses</h1>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="AddCourse">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Credits)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CMDData)
             </th>
             <th></th>
         </tr>
@@ -30,21 +24,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Credits)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CMDData)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "UpdateCourse", new { id=item.Id  }) |
+                @Html.ActionLink("Details", "GetCourse", new { id=item.Id}) |
+                @Html.ActionLink("Delete", "DeleteCourse", new { id=item.Id })
             </td>
         </tr>
 }

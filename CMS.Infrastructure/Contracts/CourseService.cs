@@ -33,12 +33,12 @@ namespace CMS.Infrastructure.Contracts
                 .ThenInclude(r => r.Students)
                 .Include(r => r.CourseManagement)
                 .ThenInclude(r => r.Teachers);
-            ;
+            
         }
 
         public Course GetCourseById(int id)
         {
-            return _context.Courses.FirstOrDefault(c => c.ID == id);
+            return _context.Courses.FirstOrDefault(c => c.Id == id);
         }
 
         public void Update(Course updatedCourse)

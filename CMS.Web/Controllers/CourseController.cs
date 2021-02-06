@@ -21,7 +21,7 @@ namespace CMS.Web.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult GetCourse(int id)
         {
             var course = _coursesRepository.GetCourseById(id);
@@ -57,7 +57,7 @@ namespace CMS.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteCourse(int id, FormCollection keyValuePairs)
+        public IActionResult DeleteCourse(int id, IFormCollection keyValuePairs)
         {
             var model = _coursesRepository.GetCourseById(id);
             _coursesRepository.Delete(model);

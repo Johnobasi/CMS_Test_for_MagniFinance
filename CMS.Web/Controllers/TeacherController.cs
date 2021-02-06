@@ -1,4 +1,6 @@
-﻿using CMS.Data.Repositories;
+﻿using CMS.Data.Core;
+using CMS.Data.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,50 @@ namespace CMS.Web.Controllers
         {
             var teacher = _teacherRepository.GetTeacherById(id);
             return View(teacher);
+        }
+
+
+        [HttpPost]
+        public IActionResult AddSubject(Teacher request)
+        {
+            _teacherRepository.Add(request);
+            return RedirectToAction(nameof(GetAllTreachers));
+        }
+
+        [HttpGet]
+        public IActionResult AddTeacher()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult UpdateTeacher(Teacher request)
+        {
+            _teacherRepository.Update(request);
+            return RedirectToAction(nameof(GetAllTreachers));
+        }
+
+        [HttpGet]
+        public IActionResult UpdateTeacher(int id)
+        {
+            var model = _teacherRepository.GetTeacherById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteTeacher(int id, IFormCollection keyValuePairs)
+        {
+            var model = _teacherRepository.GetTeacherById(id);
+            _teacherRepository.Delete(model);
+            return RedirectToAction(nameof(GetAllTreachers));
+        }
+
+        [HttpGet]
+        public IActionResult DeleteTeacher(int id)
+        {
+            var model = _teacherRepository.GetTeacherById(id);
+
+            return View(model);
         }
     }
 }

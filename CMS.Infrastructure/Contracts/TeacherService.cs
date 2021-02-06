@@ -15,20 +15,23 @@ namespace CMS.Infrastructure.Contracts
             _context = context;
         }
 
-        public Teacher Add(Teacher newTeacher)
+        public void Add(Teacher newTeacher)
         {
-            throw new System.NotImplementedException();
+            _context.Add(newTeacher);
+            _context.SaveChanges();
         }
 
-        public Teacher Delete(Teacher deletedTeacher)
+        public void Delete(Teacher deletedTeacher)
         {
-            throw new System.NotImplementedException();
+            _context.Remove(deletedTeacher);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Teacher> GetAll()
         {
             return _context.Teachers
-                .Include(t => t.CMDData);
+                .Include(t => t.Student);
+
         }
 
         public Teacher GetTeacherById(int id)
@@ -36,9 +39,10 @@ namespace CMS.Infrastructure.Contracts
             return _context.Teachers.FirstOrDefault(t => t.ID == id);
         }
 
-        public Teacher Update(Teacher updatedTeacher)
+        public void Update(Teacher updatedTeacher)
         {
-            throw new System.NotImplementedException();
+            _context.Update(updatedTeacher);
+            _context.SaveChanges();
         }
     }
 }

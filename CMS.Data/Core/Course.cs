@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CMS.Data.Core
 {
     public class Course
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID { get; set; }
+       
+       
+        public int Id { get; set; }
+
         public string Title { get; set; }
         public int Credits { get; set; }
 
