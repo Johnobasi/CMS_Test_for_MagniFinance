@@ -61,7 +61,7 @@ namespace CMS.Web
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            CMSseed.Initialize(app);
+            //CMSseed.Initialize(app);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using CMS.Data.Repositories;
+﻿using CMS.Data.Core;
+using CMS.Data.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMS.Web.Controllers
@@ -10,7 +12,7 @@ namespace CMS.Web.Controllers
         {
             _coursesRepository = coursesRepository;
         }
-        
+
         [HttpGet]
         public IActionResult GetAllCourses()
         {
@@ -18,10 +20,56 @@ namespace CMS.Web.Controllers
             return View(courses);
         }
 
+
+        [HttpPost]
         public IActionResult GetCourse(int id)
         {
             var course = _coursesRepository.GetCourseById(id);
             return View(course);
+        }
+
+
+        [HttpPost]
+        public IActionResult AddCourse(Course request)
+        {
+            _coursesRepository.Add(request);
+            return RedirectToAction(nameof(GetAllCourses));
+        }
+
+        [HttpGet]
+        public IActionResult AddCourse()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult UpdateCourse(Course request)
+        {
+            _coursesRepository.Update(request);
+            return RedirectToAction(nameof(GetAllCourses));
+        }
+
+        [HttpGet]
+        public IActionResult UpdateCourse(int id)
+        {
+            var model = _coursesRepository.GetCourseById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteCourse(int id, FormCollection keyValuePairs)
+        {
+            var model = _coursesRepository.GetCourseById(id);
+            _coursesRepository.Delete(model);
+            return RedirectToAction(nameof(GetAllCourses));
+        }
+
+        [HttpGet]
+        public IActionResult DeleteCourse(int id)
+        {
+            var model = _coursesRepository.GetCourseById(id);
+
+            return View(model);
         }
     }
 }

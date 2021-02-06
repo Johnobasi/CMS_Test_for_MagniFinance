@@ -8,8 +8,8 @@ namespace CMS.Data.Repositories
         IEnumerable<Teacher> GetAll();
         Teacher GetTeacherById(int id);
 
-        Teacher Add(Teacher newTeacher);
-        Teacher Update(Teacher updatedTeacher);
-        Teacher Delete(Teacher deletedTeacher);
+        void Add(Teacher newTeacher);
+        void Update(Teacher updatedTeacher);
+        void Delete(Teacher deletedTeacher);
     }
 }

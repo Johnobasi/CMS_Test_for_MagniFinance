@@ -15,20 +15,25 @@ namespace CMS.Infrastructure.Contracts
             _context = context;
         }
 
-        public Course Add(Course newCourse)
+        public void Add(Course newCourse)
         {
-            throw new System.NotImplementedException();
+            _context.Add(newCourse);
+            _context.SaveChanges();
         }
 
-        public Course Delete(Course deletedCourse)
+        public void Delete(Course deletedCourse)
         {
-            throw new System.NotImplementedException();
+            _context.Remove(deletedCourse);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Course> GetAll()
         {
-            return _context.Courses
-                .Include(c=>c.CMDData);
+            return _context.Courses.Include(r => r.CourseManagement)
+                .ThenInclude(r => r.Students)
+                .Include(r => r.CourseManagement)
+                .ThenInclude(r => r.Teachers);
+            ;
         }
 
         public Course GetCourseById(int id)
@@ -36,9 +41,11 @@ namespace CMS.Infrastructure.Contracts
             return _context.Courses.FirstOrDefault(c => c.ID == id);
         }
 
-        public Course Update(Course updatedCourse)
+        public void Update(Course updatedCourse)
         {
-            throw new System.NotImplementedException();
+            _context.Update(updatedCourse);
+            _context.SaveChanges();
+
         }
     }
 }

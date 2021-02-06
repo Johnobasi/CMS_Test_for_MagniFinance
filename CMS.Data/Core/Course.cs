@@ -10,7 +10,8 @@ namespace CMS.Data.Core
         public string Title { get; set; }
         public int Credits { get; set; }
 
-        public virtual ICollection<CMSSummary> CMDData { get; set; }
+        public virtual ICollection<Subject> Subject { get; set; }
+        public virtual ICollection<CourseManagement> CourseManagement { get; set; }
 
     }
 }

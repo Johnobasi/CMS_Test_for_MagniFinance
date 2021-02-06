@@ -1,7 +1,6 @@
 ﻿using CMS.Data;
 using CMS.Data.Core;
 using CMS.Data.Repositories;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,20 +14,9 @@ namespace CMS.Infrastructure.Contracts
             _context = context;
         }
 
-        public Student Add(Student newStudent)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Student Delete(Student deletedStudent)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public IEnumerable<Student> GetAll()
         {
-            return _context.Students
-                .Include(s => s.CMDData);
+            return _context.Students;
         }
 
         public Student GetStudentById(int Id)
@@ -36,9 +24,23 @@ namespace CMS.Infrastructure.Contracts
             return _context.Students.FirstOrDefault(s => s.ID == Id);
         }
 
-        public Student Update(Student updatedStudent)
+        public void Update(Student updatedStudent)
         {
-            throw new System.NotImplementedException();
+            _context.Update(updatedStudent);
+            _context.SaveChanges();
         }
+
+        public void Add(Student newStudent)
+        {
+            _context.Add(newStudent);
+            _context.SaveChanges();
+        }
+
+        public void Delete(Student deletedStudent)
+        {
+            _context.Remove(deletedStudent);
+            _context.SaveChanges();
+        }
+
     }
 }

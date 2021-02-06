@@ -8,8 +8,8 @@ namespace CMS.Data.Repositories
         IEnumerable<Subject> GetAll();
         Subject GetSubjectById(int id);
 
-        Subject Add(Student newSubject);
-        Subject Update(Student updatedSubject);
-        Subject Delete(Student deletedSubject);
+        void Add(Student newSubject);
+        void Update(Student updatedSubject);
+        void Delete(Student deletedSubject);
     }
 }

@@ -7,9 +7,9 @@ namespace CMS.Data.Repositories
     {
         IEnumerable<Student> GetAll();
         Student GetStudentById(int Id);
-        Student Add(Student newStudent);
-        Student Update(Student updatedStudent);
-        Student Delete(Student deletedStudent);
+        void Add(Student newStudent);
+        void Update(Student updatedStudent);
+        void Delete(Student deletedStudent);
 
     }
 }

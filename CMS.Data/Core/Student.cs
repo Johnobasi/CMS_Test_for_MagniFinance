@@ -14,10 +14,11 @@ namespace CMS.Data.Core
         public int ID { get; set; }
         public string LastName { get; set; }
         public string FirstMidName { get; set; }
-        public DateTime RegistrationDate { get; set; }
+        public DateTime BirthdayDay { get; set; }
+        public string RegistrationNumber { get; set; }
 
         public Grade? Grades { get; set; }
 
-        public virtual ICollection<CMSSummary> CMDData { get; set; }
+        public virtual Teacher Teacher { get; set; }
     }
 }
