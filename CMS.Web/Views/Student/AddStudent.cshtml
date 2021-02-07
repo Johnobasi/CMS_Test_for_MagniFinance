@@ -33,7 +33,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Grades" class="control-label"></label>
-                <input asp-for="Grades" class="form-control" />
+                <select asp-for="Grades">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                </select>
                 <span asp-validation-for="Grades" class="text-danger"></span>
             </div>
             <div class="form-group">
