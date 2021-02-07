@@ -6,7 +6,7 @@
 
 <h1>All Subjects</h1>
 <p>
-    <a asp-action="AddSubject">Create New</a>
+    <a asp-action="AddSubject" class="glyphicon glyphicon-plus">Add Subject</a>
 </p>
 <table class="table">
     <thead>
@@ -24,7 +24,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "UpdateSubject", new { id=item.Id }) |
+                @Html.ActionLink("Edit", "UpdateSubject", new { id=item.Id}) |
                 @Html.ActionLink("Details", "GetSubject", new { id=item.Id }) |
                 @Html.ActionLink("Delete", "DeleteSubject", new { id=item.Id })
             </td>

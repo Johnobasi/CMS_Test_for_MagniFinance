@@ -10,7 +10,10 @@ namespace CMS.Data.Core
        
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Please enter Title")]
         public string Title { get; set; }
+
+        [Required(ErrorMessage = "Please enter your credit")]
         public int Credits { get; set; }
 
         public virtual ICollection<Subject> Subject { get; set; }
